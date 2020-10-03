@@ -1,0 +1,11 @@
+C:\Users\Student\lab\shobuProject\shobucode\Shobu3\Shobu3\obj\Debug\netcoreapp3.1\Shobu3.csprojAssemblyReference.cache
+C:\Users\Student\lab\shobuProject\shobucode\Shobu3\Shobu3\obj\Debug\netcoreapp3.1\Shobu3.AssemblyInfoInputs.cache
+C:\Users\Student\lab\shobuProject\shobucode\Shobu3\Shobu3\obj\Debug\netcoreapp3.1\Shobu3.AssemblyInfo.cs
+C:\Users\Student\lab\shobuProject\shobucode\Shobu3\Shobu3\bin\Debug\netcoreapp3.1\Shobu3.exe
+C:\Users\Student\lab\shobuProject\shobucode\Shobu3\Shobu3\bin\Debug\netcoreapp3.1\Shobu3.deps.json
+C:\Users\Student\lab\shobuProject\shobucode\Shobu3\Shobu3\bin\Debug\netcoreapp3.1\Shobu3.runtimeconfig.json
+C:\Users\Student\lab\shobuProject\shobucode\Shobu3\Shobu3\bin\Debug\netcoreapp3.1\Shobu3.runtimeconfig.dev.json
+C:\Users\Student\lab\shobuProject\shobucode\Shobu3\Shobu3\bin\Debug\netcoreapp3.1\Shobu3.dll
+C:\Users\Student\lab\shobuProject\shobucode\Shobu3\Shobu3\bin\Debug\netcoreapp3.1\Shobu3.pdb
+C:\Users\Student\lab\shobuProject\shobucode\Shobu3\Shobu3\obj\Debug\netcoreapp3.1\Shobu3.dll
+C:\Users\Student\lab\shobuProject\shobucode\Shobu3\Shobu3\obj\Debug\netcoreapp3.1\Shobu3.pdb
