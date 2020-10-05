@@ -27,16 +27,13 @@ namespace Shobu3.GameLogic
         {
             foreach (Board board in boards)
             {
-                if (BoardHasOnlyXsOrOs(boards))
+                if (!board.HasOs)
                 {
-                    if (board.HasXs)
-                    {
-                        return PlayerName.X;
-                    }
-                    else
-                    {
-                        return PlayerName.O;
-                    }
+                    return PlayerName.X;
+                }
+                else if (!board.HasXs)
+                {
+                    return PlayerName.O;
                 }
             }
             Console.WriteLine("ERROR OCCURRED.  DETERMINEWINNER OR BOARDHASONLYXSOROS FAULTY");

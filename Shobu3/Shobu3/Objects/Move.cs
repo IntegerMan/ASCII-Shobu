@@ -60,11 +60,11 @@ namespace Shobu3.Objects
 
             if (this.DistanceMovedOnX == 2)
             {
-                x = Math.Abs(this.StartSquare.XCoordinate - this.EndSquare.XCoordinate);
+                x = (this.StartSquare.XCoordinate + this.EndSquare.XCoordinate) / 2;
             }
             if (this.DistanceMovedOnY == 2)
             {
-                y = Math.Abs(this.StartSquare.YCoordinate - this.EndSquare.YCoordinate);
+                y = (this.StartSquare.YCoordinate + this.EndSquare.YCoordinate) / 2;
             }
             return Conversion.ConvertXandYToBoardIndex(x, y);
         }
@@ -116,7 +116,7 @@ namespace Shobu3.Objects
 
         public override string ToString()
         {
-            return $"Player {this.PlayerMakingMove} moved from {this.StartSquare} to {this.EndSquare} on Board {this.BoardMoveIsOn}.";
+            return $"Player {this.PlayerMakingMove} moved from {this.StartSquare} to {this.EndSquare} on {this.BoardMoveIsOn}.";
         }
     }
 }

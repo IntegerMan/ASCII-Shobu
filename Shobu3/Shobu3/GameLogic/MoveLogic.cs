@@ -140,5 +140,27 @@ namespace Shobu3.GameLogic
             }
             return true;
         }
+
+        public static bool MatchesPassiveMoveWhileAggressive(Move aggressiveMove, Move passiveMove)
+        {
+            int passiveStartX = passiveMove.StartSquare.XCoordinate;
+            int passiveStartY = passiveMove.StartSquare.YCoordinate;
+            int passiveEndX = passiveMove.EndSquare.XCoordinate;
+            int passiveEndY = passiveMove.EndSquare.YCoordinate;
+            int aggressiveStartX = aggressiveMove.StartSquare.XCoordinate;
+            int aggressiveStartY = aggressiveMove.StartSquare.YCoordinate;
+            int aggressiveEndX = aggressiveMove.EndSquare.XCoordinate;
+            int aggressiveEndY = aggressiveMove.EndSquare.YCoordinate;
+
+            if (passiveStartX - passiveEndX == aggressiveStartX - aggressiveEndX)
+            {
+                if (passiveStartY - passiveEndY == aggressiveStartY - aggressiveEndY)
+                {
+                    return true;
+                }
+            }
+            Console.WriteLine("Aggressive move must match direction and distance of Passive move.");
+            return false;
+        }
     }
 }

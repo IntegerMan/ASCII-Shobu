@@ -29,12 +29,18 @@ namespace Shobu3.GameLogic
         // than the previous passive move's board
         public static bool BoardIsLegalForAggressiveMove(Move passiveMove, int boardNum)
         {
-            return passiveMove.BoardMoveIsOn.BoardNumber % 2 != boardNum % 2;
+            if (!(passiveMove.BoardMoveIsOn.BoardNumber % 2 != boardNum % 2))
+            {
+                Console.WriteLine("Aggressive move must be made on a board of different color than your passive move.");
+                Console.ReadLine();
+                return false;
+            }
+            return true;
         }
 
         // Checks that user input is a board, or a
         // request to see rules.
-        public static bool BoardIsLegalForPassiveMove(string selectedBoardInput)
+        public static bool IsValidBoard(string selectedBoardInput)
         {
             switch (selectedBoardInput)
             {
@@ -56,6 +62,8 @@ namespace Shobu3.GameLogic
             }
             return true;
         }
+
+        // Checks if square contains player's own piece.
         public static bool SquareHasOwnPiece(Square square, PlayerName player)
         {
             if (square.HasO && player == PlayerName.O)

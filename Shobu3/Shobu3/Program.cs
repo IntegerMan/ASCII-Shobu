@@ -8,11 +8,16 @@ namespace Shobu3
     {
         static void Main(string[] args)
         {
-            Game game = new Game();
-            while (game.GameIsDone == false)
+            while (true)
             {
-                game.TakeTurn();
+                Game game = new Game();
+                Console.WriteLine("Play again? (Y/N)");
+                if (!(Console.ReadLine().ToUpper() == "Y"))
+                {
+                    break;
+                }
             }
+            Console.WriteLine("Thanks for playing!  Press enter to exit...");
             Console.ReadLine();
         }
     }

@@ -30,16 +30,34 @@ namespace Shobu3.Objects
             this.PlayerO = new Player(PlayerName.O, new int[2] { 3, 4 });
             this.currentPlayer = PlayerX;
             this.GameIsDone = false;
+            RunGame();
         }
 
-        public void TakeTurn()
+        private void RunGame()
         {
-            PassiveTurn turn = new PassiveTurn(currentPlayer, mainBoards, this);
-            while (turn.TurnDone == false)
+            while (this.GameIsDone == false)
             {
-                Refresh();
-                turn.ExecutePassiveTurn();
+                TakeTurn(currentPlayer);
+                if (EndGame.BoardHasOnlyXsOrOs(mainBoards))
+                {
+                    GameIsDone = true;
+                }
+                if (currentPlayer == PlayerX)
+                {
+                    currentPlayer = PlayerO;
+                }
+                else
+                {
+                    currentPlayer = PlayerX;
+                }
             }
+            Console.WriteLine(EndGame.DetermineWinner(mainBoards) + " is the winner!");
+        }
+
+        public void TakeTurn(Player player)
+        {
+            Refresh();
+            Turn turn = new Turn(player, mainBoards, this);
         }
 
         // Refreshes console with updated piece positions
@@ -137,5 +155,11 @@ namespace Shobu3.Objects
             "pieces from one board, you win!\n\n" +
             "Finally, it is possible to run out of legal moves.  If that happens, you lose.\n\n" +
             "Enjoy!  And thanks for playing!";
+    }
+
+    public enum TurnType
+    {
+        Passive,
+        Aggressive
     }
 }

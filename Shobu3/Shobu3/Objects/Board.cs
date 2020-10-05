@@ -23,6 +23,7 @@ namespace Shobu3
                     if (square.HasX == true)
                     {
                         foundX = true;
+                        break;
                     }
                 }
                 return foundX;
@@ -39,6 +40,7 @@ namespace Shobu3
                     if (square.HasO == true)
                     {
                         foundO = true;
+                        break;
                     }
                 }
                 return foundO;
