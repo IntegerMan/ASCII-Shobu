@@ -6,6 +6,9 @@ using Shobu3.GameLogic;
 
 namespace Shobu3.Objects
 {
+    /// <summary>
+    /// Represents a full turn and tracks relevant information through its duration
+    /// </summary>
     public class Turn
     {
         public bool TurnDone = false;
@@ -19,35 +22,72 @@ namespace Shobu3.Objects
         private TurnType currentTurnType = TurnType.Passive;
         private bool TurnIsPassive = true;
         private bool PassiveTurnDone = false;
-
-
-        public Turn(Player currentPlayer, Board[] mainBoards, Game currentGame)
+        /// <summary>
+        /// Runs a turn, checks mid-turn for the end game condition of no legal
+        /// aggressive moves remaining after passive move
+        /// </summary>
+        public Turn(Game currentGame)
         {
-            this.CurrentPlayer = currentPlayer;
-            this.MainBoards = mainBoards;
+            this.CurrentPlayer = currentGame.currentPlayer;
+            this.MainBoards = currentGame.mainBoards;
             this.CurrentGame = currentGame;
             ExecutePassiveTurn();
+            if (EndGame.NoLegalAggressiveMove(currentGame))
+            {
+                Console.WriteLine(this.CurrentPlayer.LastMoveMade);
+                Console.WriteLine("There are no legal aggressive moves based on that passive move.");
+                Console.WriteLine(EndGame.DisplayWinMessageForOpponent(CurrentPlayer));
+                currentGame.GameIsDone = true;
+            }
+            else
+            {
+                ExecuteAggressiveTurn();
+            }
         }
-
+        /// <summary>
+        /// Collects input from user for their next move.  Returns
+        /// false if input is invalid or illegal.  Creates and stores
+        /// move as CurrentMove if legal.
+        /// </summary>
         public bool GetUserInputForTurn()
         {
-            Console.Write($"{CurrentPlayer}, select a board to make your {this.currentTurnType} move on:  ");
-            string selectedBoardInput = Console.ReadLine();
-            if (BoardLogic.IsValidBoard(selectedBoardInput) == false) { return false; }
-            this.CurrentBoard = this.MainBoards[int.Parse(selectedBoardInput) - 1];
-
-            if (this.TurnIsPassive && BoardLogic.BoardIsHomeBoard(CurrentPlayer, this.CurrentBoard.BoardNumber) == false) { return false; }
-            if (!this.TurnIsPassive) {
-                if (BoardLogic.BoardIsLegalForAggressiveMove(CurrentPlayer.LastMoveMade, CurrentBoard.BoardNumber) == false ) { return false; }
-            }
-
-            if (GetStartSquareFromUser() == false) { return false; }
-            if (GetEndSquareFromUser() == false) { return false; }
+            if (!GetBoardFromUser()) { return false; }
+            if (!GetStartSquareFromUser()) { return false; }
+            if (!GetEndSquareFromUser()) { return false; }
 
             this.CurrentMove = new Move(this.StartSquare, this.EndSquare, this.CurrentBoard, this.CurrentPlayer.Name, (TurnIsPassive));
             return true;
         }
+        /// <summary>
+        /// Gets board selection from user.  If illegal, returns false. If legal, assigns as CurrentBoard.
+        /// </summary>
+        private bool GetBoardFromUser()
+        {
+            Console.Write($"{CurrentPlayer}, select a board to make your {this.currentTurnType} move on (or type \"rules\" to see rules):  ");
+            string selectedBoardInput = Console.ReadLine();
+            if (BoardLogic.IsValidBoard(selectedBoardInput) == false) { return false; }
+            this.CurrentBoard = this.MainBoards[int.Parse(selectedBoardInput) - 1];
 
+            if (this.TurnIsPassive && BoardLogic.BoardIsHomeBoard(CurrentPlayer, this.CurrentBoard.BoardNumber) == false)
+            {
+                Console.WriteLine("Passive move must be made on a home board. Press enter to continue.");
+                Console.ReadLine();
+                return false;
+            }
+            if (!this.TurnIsPassive)
+            {
+                if (BoardLogic.BoardIsLegalForAggressiveMove(CurrentPlayer.LastMoveMade, CurrentBoard.BoardNumber) == false)
+                {
+                    Console.WriteLine("Aggressive move must be made on a board of different color than your passive move.");
+                    Console.ReadLine();
+                    return false;
+                }
+            }
+            return true;
+        }
+        /// <summary>
+        /// Gets start square from user.  Returns false if illegal. Assigns to StartSquare if legal.
+        /// </summary>
         private bool GetStartSquareFromUser() 
         {
             Regex numLetterCheck = new Regex(@"[a-d][1-4]");
@@ -75,7 +115,9 @@ namespace Shobu3.Objects
             }
             return true;
         }
-
+        /// <summary>
+        /// Gets end square from user.  Returns false if illegal. Assigns to EndSquare if legal.
+        /// </summary>
         private bool GetEndSquareFromUser()
         {
             Regex numLetterCheck = new Regex(@"[a-d][1-4]");
@@ -97,8 +139,11 @@ namespace Shobu3.Objects
             this.EndSquare = this.CurrentBoard.SquaresOnBoard[endSquareInput];
             return true;
         }
-
-        public void ExecutePassiveTurn()
+        /// <summary>
+        /// Collects input from user for passive turn, ensures legality, then executes move.
+        /// Also updates Turn properties to reflect upcoming aggressive turn.
+        /// </summary>
+        private void ExecutePassiveTurn()
         {
             while (!PassiveTurnDone)
             {
@@ -113,18 +158,20 @@ namespace Shobu3.Objects
                     TurnIsPassive = false;
                     PassiveTurnDone = true;
                     this.currentTurnType = TurnType.Aggressive;
-                    ExecuteAggressiveTurn();
                 }
                 else
                 {
+                    Console.WriteLine(MoveLogic.PrintErrorMessage(this.CurrentMove) + "  Press enter to continue...");
                     Console.ReadLine();
                     PassiveTurnDone = false;
                 }
                 CurrentGame.Refresh();
             }
         }
-
-        public void ExecuteAggressiveTurn()
+        /// <summary>
+        /// Collects input from user for aggressive turn, ensures legality, then executes move.
+        /// </summary>
+        private void ExecuteAggressiveTurn()
         {
             while (TurnDone == false)
             {
@@ -142,12 +189,16 @@ namespace Shobu3.Objects
                 }
                 else
                 {
+                    Console.WriteLine(MoveLogic.PrintErrorMessage(this.CurrentMove) + "  Press enter to continue...");
                     Console.ReadLine();
                 }
             }
         }
-
-        public void ExecuteCurrentMove(Move currentMove)
+        /// <summary>
+        /// Called after move is verified as legal.  Executes move on applicable board.
+        /// </summary>
+        /// <param name="currentMove"></param>
+        private void ExecuteCurrentMove(Move currentMove)
         {
             currentMove.StartSquare.HasO = false;
             currentMove.StartSquare.HasX = false;

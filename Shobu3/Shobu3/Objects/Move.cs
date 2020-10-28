@@ -7,7 +7,8 @@ namespace Shobu3.Objects
 {
     /// <summary>
     /// Stores the data required for a move:
-    /// Start, end, distance on each axis, and if move is 2 spaces.
+    /// Start, end, distance on each axis, passive/aggressive,
+    /// broken rule (if applicable), and if move is 2 spaces.
     /// </summary>
     public class Move
     {
@@ -19,7 +20,7 @@ namespace Shobu3.Objects
             this.PlayerMakingMove = player;
             this.IsPassive = isPassive;
         }
-
+        public MoveRules BrokenRule { get; set; }
         public PlayerName PlayerMakingMove { get; }
         public Square StartSquare { get; }
         public Square EndSquare { get; }

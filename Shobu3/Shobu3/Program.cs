@@ -8,6 +8,10 @@ namespace Shobu3
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Welcome to Shobu!\n");
+            Console.WriteLine(Game.rules);
+            Console.WriteLine("Press enter to begin...");
+            Console.ReadLine();
             while (true)
             {
                 Game game = new Game();
