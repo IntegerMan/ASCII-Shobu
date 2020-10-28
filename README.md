@@ -1,6 +1,5 @@
 # ASCII-Shobu
 The modern classic board game Shobu, recreated as a console app.
-IN PROGRESS!  NOT FUNCTIONAL AT THIS TIME!
 
  The goal of Shobu is to remove all of your opponents pieces on any ONE board.
  On your turn, you make first a "passive" move, then an "aggressive" move.  The main
