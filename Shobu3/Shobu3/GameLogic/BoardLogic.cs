@@ -20,8 +20,6 @@ namespace Shobu3.GameLogic
                     return true;
                 }
             }
-            Console.WriteLine("Passive move must be made on a home board. Press enter to continue.");
-            Console.ReadLine();
             return false;
         }
 
@@ -31,8 +29,6 @@ namespace Shobu3.GameLogic
         {
             if (!(passiveMove.BoardMoveIsOn.BoardNumber % 2 != boardNum % 2))
             {
-                Console.WriteLine("Aggressive move must be made on a board of different color than your passive move.");
-                Console.ReadLine();
                 return false;
             }
             return true;

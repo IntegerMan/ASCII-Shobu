@@ -6,8 +6,8 @@ using Shobu3.GameLogic;
 namespace Shobu3.Objects
 {
     /// <summary>
-    /// Represents a player.  Holds their name and home boards.
-    /// Also holds enum for PlayerName.
+    /// Represents a player.  Holds their name, last passive move,
+    /// and home boards.
     /// </summary>
     public class Player
     {
@@ -24,11 +24,5 @@ namespace Shobu3.Objects
         {
             return "Player " + Name;
         }
-    }
-
-    public enum PlayerName
-    {
-        X,
-        O
     }
 }

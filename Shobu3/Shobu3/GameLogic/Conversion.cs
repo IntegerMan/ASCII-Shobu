@@ -16,7 +16,7 @@ namespace Shobu3.GameLogic
         }
 
         // Converts x and y to square index on a board
-        public static int ConvertXandYToBoardIndex(int x, int y)
+        public static int ConvertXAndYToBoardIndex(int x, int y)
         {
             return (x - 1) + ((y - 1) * 4);
         }

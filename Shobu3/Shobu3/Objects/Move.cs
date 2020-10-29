@@ -7,7 +7,8 @@ namespace Shobu3.Objects
 {
     /// <summary>
     /// Stores the data required for a move:
-    /// Start, end, distance on each axis, and if move is 2 spaces.
+    /// Start, end, distance on each axis, passive/aggressive,
+    /// broken rule (if applicable), and if move is 2 spaces.
     /// </summary>
     public class Move
     {
@@ -19,7 +20,7 @@ namespace Shobu3.Objects
             this.PlayerMakingMove = player;
             this.IsPassive = isPassive;
         }
-
+        public MoveRules BrokenRule { get; set; }
         public PlayerName PlayerMakingMove { get; }
         public Square StartSquare { get; }
         public Square EndSquare { get; }
@@ -66,52 +67,39 @@ namespace Shobu3.Objects
             {
                 y = (this.StartSquare.YCoordinate + this.EndSquare.YCoordinate) / 2;
             }
-            return Conversion.ConvertXandYToBoardIndex(x, y);
+            return Conversion.ConvertXAndYToBoardIndex(x, y);
         }
 
         // Returns index of square past move or -1 if at edge of board
         public int GetIndexOfSquarePastMove()
         {
-            int squarePastMoveX = 0;
-            int squarePastMoveY = 0;
-
-            if (DistanceMovedOnX == 0)
-            {
-                squarePastMoveX = this.StartSquare.XCoordinate;
-            }
-            else if (StartSquare.XCoordinate > EndSquare.XCoordinate)
-            {
-                squarePastMoveX = this.EndSquare.XCoordinate - 1;
-            }
-            else if (StartSquare.XCoordinate < EndSquare.XCoordinate)
-            {
-                squarePastMoveX = this.EndSquare.XCoordinate + 1;
-            }
-
+            int squarePastMoveX = GetSquarePastMoveOnSingleAxis(DistanceMovedOnX, StartSquare.XCoordinate, EndSquare.XCoordinate);
             if (squarePastMoveX > 4 || squarePastMoveX < 1)
             {
                 return -1;
             }
 
-            if (DistanceMovedOnY == 0)
-            {
-                squarePastMoveY = this.StartSquare.YCoordinate;
-            }
-            else if (StartSquare.YCoordinate > EndSquare.YCoordinate)
-            {
-                squarePastMoveY = this.EndSquare.YCoordinate - 1;
-            }
-            else if (StartSquare.YCoordinate < EndSquare.YCoordinate)
-            {
-                squarePastMoveY = this.EndSquare.YCoordinate + 1;
-            }
-
+            int squarePastMoveY = GetSquarePastMoveOnSingleAxis(DistanceMovedOnY, StartSquare.YCoordinate, EndSquare.YCoordinate);
             if (squarePastMoveY > 4 || squarePastMoveY < 1)
             {
                 return -1;
             }
-
-            return (squarePastMoveX - 1) + ((squarePastMoveY - 1) * 4);
+            return Conversion.ConvertXAndYToBoardIndex(squarePastMoveX, squarePastMoveY);
+        }
+        /// <summary>
+        /// Returns coordinate of square past the given single-axis movement
+        /// </summary>
+        private int GetSquarePastMoveOnSingleAxis(int distance, int axisStart, int axisEnd)
+        {
+            if (distance == 0)
+            {
+                return axisStart;
+            }
+            else if (axisStart > axisEnd)
+            {
+                return axisEnd - 1;
+            }
+            return axisEnd + 1;
         }
 
         public override string ToString()

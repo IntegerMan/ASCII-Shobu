@@ -10,32 +10,32 @@ namespace Shobu3.GameLogic
     /// </summary>
     public static class MoveLogic
     {
-        // Runs all checks and prints appropriate error message if check failed
+        // Runs all checks and assigns appropriate broken rule to move if check failed
         public static bool MoveIsLegal(Move move)
         {
             if (!MoveIsAStraightLine(move))
             {
-                Console.WriteLine("Your piece must move in a straight line.  Press enter to continue.");
+                move.BrokenRule = MoveRules.StraightLine;
                 return false;
             }
             if (!MoveIsLegalDistance(move))
             {
-                Console.WriteLine("Your piece must move 1 or 2 squares.  Press enter to continue.");
+                move.BrokenRule = MoveRules.LegalDistance;
                 return false;
             }
             if (!MoveAvoidsOwnPieces(move))
             {
-                Console.WriteLine("You may never push your own pieces.  Press enter to continue.");
+                move.BrokenRule = MoveRules.AvoidsOwnPieces;
                 return false;
             }
             if (!MoveDoesNotPush2Pieces(move))
             {
-                Console.WriteLine("You may not move through 2 pieces at once.  Press enter to continue.");
+                move.BrokenRule = MoveRules.PushesLessThan2Pieces;
                 return false;
             }
             if (!MoveDoesNotPushWhilePassive(move))
             {
-                Console.WriteLine("You may not push other pieces with a passive move.  Press enter to continue.");
+                move.BrokenRule = MoveRules.DoesNotPushWhilePassive;
                 return false;
             }
             return true;
@@ -159,8 +159,27 @@ namespace Shobu3.GameLogic
                     return true;
                 }
             }
-            Console.WriteLine("Aggressive move must match direction and distance of Passive move.");
+            aggressiveMove.BrokenRule = MoveRules.MatchesPassiveMoveWhileAggressive;
             return false;
+        }
+
+        public static string PrintErrorMessage(Move move)
+        {
+            switch (move.BrokenRule)
+            {
+                case MoveRules.StraightLine:
+                    return "Your piece must move in a straight line.";
+                case MoveRules.LegalDistance:
+                    return "Your piece must move 1 or 2 squares.";
+                case MoveRules.AvoidsOwnPieces:
+                    return "You may never push your own pieces.";
+                case MoveRules.PushesLessThan2Pieces:
+                    return "You may never push more than 1 piece.";
+                case MoveRules.MatchesPassiveMoveWhileAggressive:
+                    return "Aggressive move must match direction and distance of Passive move.";
+                default:
+                    return "Legal move.";
+            }
         }
     }
 }
