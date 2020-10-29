@@ -104,7 +104,11 @@ namespace Shobu3.GameLogic
                 &&
                 (aggressiveEndX > 0 && aggressiveEndX < 5))
             {
+<<<<<<< HEAD
             int resultIndex = Conversion.ConvertXAndYToBoardIndex(aggressiveEndX, aggressiveEndY);
+=======
+            int resultIndex = Conversion.ConvertXandYToBoardIndex(aggressiveEndX, aggressiveEndY);
+>>>>>>> 478b147e4f5f3792de7d48455b6c751bfeb9c3a3
             return board.SquaresOnBoard[resultIndex];
             }
             return null;

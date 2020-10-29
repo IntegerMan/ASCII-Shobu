@@ -22,6 +22,7 @@ C:\Users\Student\lab\shobuProject\Shobu3\ASCII-Shobu\Shobu3\Shobu3\obj\Debug\net
 C:\Users\Student\lab\shobuProject\Shobu3\ASCII-Shobu\Shobu3\Shobu3\obj\Debug\netcoreapp3.1\Shobu3.dll
 C:\Users\Student\lab\shobuProject\Shobu3\ASCII-Shobu\Shobu3\Shobu3\obj\Debug\netcoreapp3.1\Shobu3.pdb
 C:\Users\Student\lab\shobuProject\Shobu3\ASCII-Shobu\Shobu3\Shobu3\obj\Debug\netcoreapp3.1\Shobu3.genruntimeconfig.cache
+<<<<<<< HEAD
 C:\Users\Student\lab\shobuProject\shobucode\Shobu3\ASCII-Shobu\Shobu3\Shobu3\bin\Debug\netcoreapp3.1\Shobu3.exe
 C:\Users\Student\lab\shobuProject\shobucode\Shobu3\ASCII-Shobu\Shobu3\Shobu3\bin\Debug\netcoreapp3.1\Shobu3.deps.json
 C:\Users\Student\lab\shobuProject\shobucode\Shobu3\ASCII-Shobu\Shobu3\Shobu3\bin\Debug\netcoreapp3.1\Shobu3.runtimeconfig.json
@@ -35,3 +36,5 @@ C:\Users\Student\lab\shobuProject\shobucode\Shobu3\ASCII-Shobu\Shobu3\Shobu3\obj
 C:\Users\Student\lab\shobuProject\shobucode\Shobu3\ASCII-Shobu\Shobu3\Shobu3\obj\Debug\netcoreapp3.1\Shobu3.dll
 C:\Users\Student\lab\shobuProject\shobucode\Shobu3\ASCII-Shobu\Shobu3\Shobu3\obj\Debug\netcoreapp3.1\Shobu3.pdb
 C:\Users\Student\lab\shobuProject\shobucode\Shobu3\ASCII-Shobu\Shobu3\Shobu3\obj\Debug\netcoreapp3.1\Shobu3.genruntimeconfig.cache
+=======
+>>>>>>> 478b147e4f5f3792de7d48455b6c751bfeb9c3a3
