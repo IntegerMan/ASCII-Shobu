@@ -34,11 +34,9 @@ namespace Shobu3.Objects
         /// <summary>
         /// Creates series of turns until end game condition is met.
         /// </summary>
-<<<<<<< HEAD
+
         public void RunGame()
-=======
-        private void RunGame()
->>>>>>> 478b147e4f5f3792de7d48455b6c751bfeb9c3a3
+
         {
             while (this.GameIsDone == false)
             {
