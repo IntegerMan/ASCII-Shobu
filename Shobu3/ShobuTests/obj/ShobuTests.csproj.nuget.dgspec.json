@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Student\\Desktop\\ShobuBackup\\ASCII-Shobu\\Shobu3\\ShobuTests\\ShobuTests.csproj": {}
+    "C:\\Users\\Student\\lab\\ShobuRepo\\ASCII-Shobu\\Shobu3\\ShobuTests\\ShobuTests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Student\\Desktop\\ShobuBackup\\ASCII-Shobu\\Shobu3\\Shobu3\\Shobu3.csproj": {
+    "C:\\Users\\Student\\lab\\ShobuRepo\\ASCII-Shobu\\Shobu3\\Shobu3\\Shobu3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Student\\Desktop\\ShobuBackup\\ASCII-Shobu\\Shobu3\\Shobu3\\Shobu3.csproj",
+        "projectUniqueName": "C:\\Users\\Student\\lab\\ShobuRepo\\ASCII-Shobu\\Shobu3\\Shobu3\\Shobu3.csproj",
         "projectName": "Shobu3",
-        "projectPath": "C:\\Users\\Student\\Desktop\\ShobuBackup\\ASCII-Shobu\\Shobu3\\Shobu3\\Shobu3.csproj",
+        "projectPath": "C:\\Users\\Student\\lab\\ShobuRepo\\ASCII-Shobu\\Shobu3\\Shobu3\\Shobu3.csproj",
         "packagesPath": "C:\\Users\\Student\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Student\\Desktop\\ShobuBackup\\ASCII-Shobu\\Shobu3\\Shobu3\\obj\\",
+        "outputPath": "C:\\Users\\Student\\lab\\ShobuRepo\\ASCII-Shobu\\Shobu3\\Shobu3\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -59,14 +59,14 @@
         }
       }
     },
-    "C:\\Users\\Student\\Desktop\\ShobuBackup\\ASCII-Shobu\\Shobu3\\ShobuTests\\ShobuTests.csproj": {
+    "C:\\Users\\Student\\lab\\ShobuRepo\\ASCII-Shobu\\Shobu3\\ShobuTests\\ShobuTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Student\\Desktop\\ShobuBackup\\ASCII-Shobu\\Shobu3\\ShobuTests\\ShobuTests.csproj",
+        "projectUniqueName": "C:\\Users\\Student\\lab\\ShobuRepo\\ASCII-Shobu\\Shobu3\\ShobuTests\\ShobuTests.csproj",
         "projectName": "ShobuTests",
-        "projectPath": "C:\\Users\\Student\\Desktop\\ShobuBackup\\ASCII-Shobu\\Shobu3\\ShobuTests\\ShobuTests.csproj",
+        "projectPath": "C:\\Users\\Student\\lab\\ShobuRepo\\ASCII-Shobu\\Shobu3\\ShobuTests\\ShobuTests.csproj",
         "packagesPath": "C:\\Users\\Student\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Student\\Desktop\\ShobuBackup\\ASCII-Shobu\\Shobu3\\ShobuTests\\obj\\",
+        "outputPath": "C:\\Users\\Student\\lab\\ShobuRepo\\ASCII-Shobu\\Shobu3\\ShobuTests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -85,8 +85,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\Student\\Desktop\\ShobuBackup\\ASCII-Shobu\\Shobu3\\Shobu3\\Shobu3.csproj": {
-                "projectPath": "C:\\Users\\Student\\Desktop\\ShobuBackup\\ASCII-Shobu\\Shobu3\\Shobu3\\Shobu3.csproj"
+              "C:\\Users\\Student\\lab\\ShobuRepo\\ASCII-Shobu\\Shobu3\\Shobu3\\Shobu3.csproj": {
+                "projectPath": "C:\\Users\\Student\\lab\\ShobuRepo\\ASCII-Shobu\\Shobu3\\Shobu3\\Shobu3.csproj"
               }
             }
           }

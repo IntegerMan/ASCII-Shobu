@@ -1,31 +1,17 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
-    "C:\\Users\\Student\\Desktop\\ShobuBackup\\ASCII-Shobu\\Shobu3\\Shobu3\\Shobu3.csproj": {}
+    "C:\\Users\\Student\\lab\\ShobuRepo\\ASCII-Shobu\\Shobu3\\Shobu3\\Shobu3.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Student\\Desktop\\ShobuBackup\\ASCII-Shobu\\Shobu3\\Shobu3\\Shobu3.csproj": {
+    "C:\\Users\\Student\\lab\\ShobuRepo\\ASCII-Shobu\\Shobu3\\Shobu3\\Shobu3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Student\\Desktop\\ShobuBackup\\ASCII-Shobu\\Shobu3\\Shobu3\\Shobu3.csproj",
+        "projectUniqueName": "C:\\Users\\Student\\lab\\ShobuRepo\\ASCII-Shobu\\Shobu3\\Shobu3\\Shobu3.csproj",
         "projectName": "Shobu3",
-        "projectPath": "C:\\Users\\Student\\Desktop\\ShobuBackup\\ASCII-Shobu\\Shobu3\\Shobu3\\Shobu3.csproj",
+        "projectPath": "C:\\Users\\Student\\lab\\ShobuRepo\\ASCII-Shobu\\Shobu3\\Shobu3\\Shobu3.csproj",
         "packagesPath": "C:\\Users\\Student\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Student\\Desktop\\ShobuBackup\\ASCII-Shobu\\Shobu3\\Shobu3\\obj\\",
-=======
-    "C:\\Users\\Student\\lab\\shobuProject\\Shobu3\\ASCII-Shobu\\Shobu3\\Shobu3\\Shobu3.csproj": {}
-  },
-  "projects": {
-    "C:\\Users\\Student\\lab\\shobuProject\\Shobu3\\ASCII-Shobu\\Shobu3\\Shobu3\\Shobu3.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\Student\\lab\\shobuProject\\Shobu3\\ASCII-Shobu\\Shobu3\\Shobu3\\Shobu3.csproj",
-        "projectName": "Shobu3",
-        "projectPath": "C:\\Users\\Student\\lab\\shobuProject\\Shobu3\\ASCII-Shobu\\Shobu3\\Shobu3\\Shobu3.csproj",
-        "packagesPath": "C:\\Users\\Student\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Student\\lab\\shobuProject\\Shobu3\\ASCII-Shobu\\Shobu3\\Shobu3\\obj\\",
->>>>>>> 478b147e4f5f3792de7d48455b6c751bfeb9c3a3
+        "outputPath": "C:\\Users\\Student\\lab\\ShobuRepo\\ASCII-Shobu\\Shobu3\\Shobu3\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
