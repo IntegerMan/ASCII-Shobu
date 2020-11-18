@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Shobu3.Objects;
+﻿using Shobu3.Objects;
 
 namespace Shobu3.GameLogic
 {
@@ -165,21 +162,15 @@ namespace Shobu3.GameLogic
 
         public static string PrintErrorMessage(Move move)
         {
-            switch (move.BrokenRule)
+            return move.BrokenRule switch
             {
-                case MoveRules.StraightLine:
-                    return "Your piece must move in a straight line.";
-                case MoveRules.LegalDistance:
-                    return "Your piece must move 1 or 2 squares.";
-                case MoveRules.AvoidsOwnPieces:
-                    return "You may never push your own pieces.";
-                case MoveRules.PushesLessThan2Pieces:
-                    return "You may never push more than 1 piece.";
-                case MoveRules.MatchesPassiveMoveWhileAggressive:
-                    return "Aggressive move must match direction and distance of Passive move.";
-                default:
-                    return "Legal move.";
-            }
+                MoveRules.StraightLine => "Your piece must move in a straight line.",
+                MoveRules.LegalDistance => "Your piece must move 1 or 2 squares.",
+                MoveRules.AvoidsOwnPieces => "You may never push your own pieces.",
+                MoveRules.PushesLessThan2Pieces => "You may never push more than 1 piece.",
+                MoveRules.MatchesPassiveMoveWhileAggressive => "Aggressive move must match direction and distance of Passive move.",
+                _ => "Legal move.",
+            };
         }
     }
 }

@@ -52,7 +52,7 @@ namespace Shobu3.GameLogic
                     Console.ReadLine();
                     return false;
                 default:
-                    Console.WriteLine("Not a valid board. Press enter to continue.");
+                    Console.WriteLine("Not a valid board. Please type a number 1 - 4. Press enter to continue.");
                     Console.ReadLine();
                     return false;
             }

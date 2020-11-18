@@ -12,13 +12,13 @@ namespace Shobu3.GameLogic
         {
             int x = square.XCoordinate;
             int y = square.YCoordinate;
-            return (x - 1) + ((y - 1) * 4);
+            return (x - 1) + ((y - 1) * Board.BoardSize);
         }
 
         // Converts x and y to square index on a board
         public static int ConvertXAndYToBoardIndex(int x, int y)
         {
-            return (x - 1) + ((y - 1) * 4);
+            return (x - 1) + ((y - 1) * Board.BoardSize);
         }
 
         // Converts the letter+number input from user into the
@@ -26,21 +26,17 @@ namespace Shobu3.GameLogic
         public static int ConvertLetterNumInputToBoardIndex(string input)
         {
             int result = int.Parse(input[1].ToString()) - 1;
-            switch (input[0])
+            switch (input[0].ToString().ToLower())
             {
-                case 'a':
-                case 'A':
+                case "a":
                     break;
-                case 'b':
-                case 'B':
-                    result += 4;
+                case "b":
+                    result += Board.BoardSize;
                     break;
-                case 'c':
-                case 'C':
+                case "c":
                     result += 8;
                     break;
-                case 'd':
-                case 'D':
+                case "d":
                     result += 12;
                     break;
                 default:

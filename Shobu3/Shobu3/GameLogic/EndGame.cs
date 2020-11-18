@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Text.RegularExpressions;
 using Shobu3.Objects;
 
 namespace Shobu3.GameLogic
@@ -42,8 +39,7 @@ namespace Shobu3.GameLogic
                     return PlayerName.O;
                 }
             }
-            Console.WriteLine("ERROR OCCURRED.  DETERMINEWINNER OR BOARDHASONLYXSOROS FAULTY");
-            return PlayerName.X;
+            throw new InvalidOperationException("ERROR OCCURRED.  DETERMINEWINNER OR BOARDHASONLYXSOROS FAULTY");
         }
         /// <summary>
         /// Searches legal boards for at least 1 legal aggressive move.
@@ -100,12 +96,11 @@ namespace Shobu3.GameLogic
             int aggressiveEndX = aggressiveStartX - (passiveStartX - passiveEndX);
             int aggressiveEndY = aggressiveStartY - (passiveStartY - passiveEndY);
             
-            if ((aggressiveEndY > 0 && aggressiveEndY < 5)
-                &&
+            if ((aggressiveEndY > 0 && aggressiveEndY < 5) &&
                 (aggressiveEndX > 0 && aggressiveEndX < 5))
             {
-            int resultIndex = Conversion.ConvertXAndYToBoardIndex(aggressiveEndX, aggressiveEndY);
-            return board.SquaresOnBoard[resultIndex];
+                int resultIndex = Conversion.ConvertXAndYToBoardIndex(aggressiveEndX, aggressiveEndY);
+                return board.SquaresOnBoard[resultIndex];
             }
             return null;
         }
@@ -114,7 +109,7 @@ namespace Shobu3.GameLogic
         /// </summary>
         public static string DisplayWinMessageForOpponent(Player loser)
         {
-            string winner = "";
+            string winner;
             if (loser.Name == PlayerName.X)
             {
                 winner = "O";
